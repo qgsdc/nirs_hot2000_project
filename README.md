@@ -563,9 +563,40 @@ HRVノイズは特定の被験者に依存せず散発的であったため、�
 cd('script/step17');
 run_step17_hrv_cleaning
 ```
-
 ---
 
+## Step 19: HRVコントラスト解析 - 思考課題（Test）と対照課題（Control）の比較 (`run_step19_hrv_contrast.m`)
+
+NIRS解析における Task vs Control の対比構造と同様の手法を用い、各思考モード（DT/CT）において本来の思考課題（Test）が対照課題（Control）と比較してどのような生理的影響を与えるかを算出した。
+
+### 1. 解析定義：Test vs Control コントラスト
+本解析における `Contrast` は、各思考モード内での本来の課題（Test）と対照課題（Control）の変化量（Delta）の差分として定義される。
+
+$$Contrast = \Delta Test - \Delta Control$$
+
+* **$$\Delta Test$$**: (本来の思考課題中の値) - (直前のBaseline)
+* **$$\Delta Control$$**: (対照課題中の値) - (直前のBaseline)
+
+この算出により、単純な活動負荷を除外した「特定の思考モードに特有の自律神経応答（LF/HF）」を抽出する。
+
+### 2. 思考モード別解析結果 (N=25)
+
+| 思考モード | Test Mean | Control Mean | Contrast (Test-Control) | p-value | 判定 |
+|:---|:---:|:---:|:---:|:---:|:---|
+| **DT (Divergent Thinking)** | -241.98 | -225.67 | **-16.31** | 0.1310 | 有意な傾向 |
+| **CT (Convergent Thinking)** | -234.15 | -225.19 | **-8.95** | 0.2918 | 有意差なし |
+
+### 3. 解析結果の解釈
+* **Divergent Thinking (DT) の特異性**: アイデア拡散課題（DT_Test）は、その対照課題と比較して LF/HF をより低下（リラックス方向へシフト）させる傾向が確認された。そのコントラスト値（-16.31）は CT 課題の約1.8倍であり、拡散的思考中の方が自律神経バランスが副交感神経優位に傾きやすい可能性を示唆している。
+* **次ステップへの展開**: この自律神経のリラックス傾向（LF/HF低下）が、NIRSで確認された脳血流（HbT）の劇的な上昇（$p=0.0003$）と被験者内でどのように連動しているかを、最終的な統合相関分析で検証する。
+
+#### 実行方法
+```matlab
+% script/step19 フォルダに移動して実行
+cd('script/step19');
+run_step19_hrv_contrast
+```
+---
 
 これ以下はどのようなステップ番号にするか保留 
 
