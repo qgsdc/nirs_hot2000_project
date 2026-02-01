@@ -317,6 +317,50 @@ run_step7_prepare_table_plan_b
 
 ---
 
+### Step 11: 脳活動と心理指標の相関解析 (Correlation Analysis)
+
+正規性検定（Step 10）の結果に基づき、各指標と脳活動（HbT変化量）の相関を算出した。`ct_total` が関わる解析にはスピアマンの順位相関を用い、それ以外の指標にはピアソンの積率相関を用いた。
+
+* **使用スクリプト**: `script/step11_hybrid_correlation.R`, `script/step11_2_all_correlation_plots.R`
+* **解析対象**: N = 25
+
+#### 1. 相関解析結果一覧
+脳活動（Task - Control）と各心理指標の相関係数およびp値を以下に示す。
+
+| 解析の組み合わせ | 手法 | 相関係数 (r/ρ) | p値 | 判定 |
+|:---|:---|:---|:---|:---|
+| **Brain_DT vs dt_total** | ピアソン | 0.162 | 0.4385 | なし |
+| **Brain_DT vs ct_total** | スピアマン | **-0.596** | **0.0017** | **Significant*** |
+| **Brain_DT vs wais_fsiq** | ピアソン | -0.163 | 0.4355 | なし |
+| **Brain_DT vs wais_vci** | ピアソン | **-0.511** | **0.0091** | **Significant*** |
+| **Brain_DT vs wais_pri** | ピアソン | 0.094 | 0.6549 | なし |
+| **Brain_DT vs wais_wmi** | ピアソン | -0.214 | 0.3035 | なし |
+| **Brain_DT vs wais_psi** | ピアソン | 0.181 | 0.3860 | なし |
+
+※ * p < .05, ** p < .01
+
+#### 2. 主要な知見の可視化
+拡散的思考（DT）中の脳活動と強い負の相関が認められた主要指標の散布図を以下に示す。
+
+| DT脳活動 vs CTスコア (Spearman) | DT脳活動 vs WAIS-VCI (Pearson) |
+|:---:|:---:|
+| ![DT vs CT] <img width="1500" height="1200" alt="Brain_DT_vs_ct_total" src="https://github.com/user-attachments/assets/a66ff77a-ee66-44f3-8858-8024a8abef6e" />
+| ![DT vs VCI] <img width="1500" height="1200" alt="Brain_DT_vs_wais_vci" src="https://github.com/user-attachments/assets/5e0c5f96-377c-473b-9237-face0e50cd1d" />
+
+
+#### 3. 考察
+本解析により、拡散的思考（DT）中の前頭前野活性化量と個人の認知能力との間に、興味深い関連が明らかとなった。
+
+- **神経効率性（Neural Efficiency）の示唆**: 言語理解指数（VCI）および収束的思考（CT）スコアが高い個人ほど、DT課題遂行中の前頭前野活性化（HbT変化量）が有意に低い（負の相関）ことが示された。これは、認知能力が高い個体ほど、より少ない認知的努力（脳資源の効率的活用）で課題を遂行している可能性を示唆している。
+- **課題特異的な脳活動**: 脳活動と実際のDTスコアの間には有意な相関が見られなかったことから、前頭前野の活性化はアイディアの「成績」そのものよりも、その生成に至る「プロセスのスタイル」や「主観的な負荷」を反映している可能性が高い。
+
+![全指標の相関サマリー]<img width="1800" height="1500" alt="correlation_dt_brain_score" src="https://github.com/user-attachments/assets/91712895-4487-4326-8a82-ffc4aa5c33a2" />
+
+
+
+---
+
+
 ## 📂 データ構造の定義 (Data Hierarchy)
 
 解析に使用する `.mat` ファイルは以下の階層構造を持ちます。
