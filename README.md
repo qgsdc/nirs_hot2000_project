@@ -268,7 +268,6 @@ run_step7_prepare_table_plan_b
     - <img width="1800" height="1800" alt="final_activation_plot" src="https://github.com/user-attachments/assets/3ceeda6a-48fa-41bb-973b-51852324c019" />
 　　 - <img width="2700" height="2400" alt="complete_nirs_analysis_report" src="https://github.com/user-attachments/assets/8ec2327f-e92d-4f71-ab23-9a765022f292" />
 
-
 ---
 
 ## 結論
@@ -304,8 +303,6 @@ run_step7_prepare_table_plan_b
 数値による検定結果を補完するため、QQプロットを作成した。`ct_total` については、理論上の正規分布を示す直線からデータの乖離が確認された。
 
 -<img width="3000" height="3000" alt="qqplots_all_n25" src="https://github.com/user-attachments/assets/1f1a9fc8-d316-4847-9352-1c1287fa24b5" />
-
-
 
 #### 3. 解析方針の決定
 本検定の結果に基づき、以下の通り相関解析の手法を使い分ける。
@@ -358,7 +355,7 @@ run_step7_prepare_table_plan_b
 
 ---
 
-*### Step 12: 能力群間における脳活動の比較 (Group Comparison)
+### Step 12: 能力群間における脳活動の比較 (Group Comparison)
 
 相関分析で関連が見られた「言語理解（VCI）」に基づき、被験者を中央値（Median = 112）で2群に分け、拡散的思考（DT）中の脳活動に差があるかを検討した。
 
@@ -381,6 +378,37 @@ run_step7_prepare_table_plan_b
 
 ---
 
+### Step 13: 脳活動の側性化（左右差）と心理指標の関連
+
+言語能力（VCI）および収束的思考（CT）能力と脳活動の負の相関が、左脳（Ch1）と右脳（Ch2）のどちらでより顕著であるかを検証した。
+
+* **使用スクリプト**: `script/step13_laterality_analysis.R`
+* **解析対象**: N=25
+
+#### 1. 左右別相関係数一覧 (DT課題)
+
+| 心理指標 | 脳部位 | 手法 | 相関係数 (r/ρ) | p値 | 判定 |
+|:---|:---|:---|:---|:---|:---|
+| **WAIS-VCI** | 左脳 (Ch1) | ピアソン | -0.362 | 0.0753 | 有意傾向 (+) |
+| **WAIS-VCI** | **右脳 (Ch2)** | ピアソン | **-0.533** | **0.0061** | **Significant (**) |
+| **CT_Total** | 左脳 (Ch1) | スピアマン | -0.393 | 0.0520 | 有意傾向 (+) |
+| **CT_Total** | **右脳 (Ch2)** | スピアマン | **-0.576** | **0.0026** | **Significant (**) |
+
+※ ** p < .01, + p < .10
+
+#### 2. 視覚的比較 (左右のコントラスト)
+左脳（Ch1）と右脳（Ch2）における相関の強さの違いを以下の散布図に示す。右脳において、回帰線の傾きがより急峻であり、統計的に有意な負の相関が確認できる。
+
+![左右の相関比較]<img width="3000" height="2400" alt="laterality_comparison_plots" src="https://github.com/user-attachments/assets/1bd4d8c9-e366-414b-ae17-cd3d17fe4f9c" />
+
+#### 3. 考察
+解析の結果、本研究において示唆された「神経効率性（高い知的能力に伴う活動の抑制）」は、**右脳（Ch2）においてより顕著に現れる**ことが明らかとなった。
+
+- **右脳制御の重要性**: 言語理解（VCI）は一般に左脳優位な指標とされるが、拡散的思考課題（DT）遂行時においては、高い言語的能力を持つ個人ほど**右脳側**の前頭前野リソースを無駄に活性化させず、最適に抑制・制御している可能性が高い。
+- **結論**: 高い認知能力は、前頭前野ネットワーク全体の「使い方の洗練」に寄与しており、特に右脳側におけるリソース管理の効率化が、創造的課題遂行時の脳活動量に反映されていると考えられる。
+
+---
+  
 ## 📂 データ構造の定義 (Data Hierarchy)
 
 解析に使用する `.mat` ファイルは以下の階層構造を持ちます。
