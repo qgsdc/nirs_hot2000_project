@@ -265,7 +265,9 @@ run_step7_prepare_table_plan_b
     - **部位ごとのタスク間比較:** 同一部位内でのタスク比較（DT vs CT）を行った結果、左脳・右脳ともにDTがCTを上回る傾向にあるが、部位別の有意差は認められなかった（左: $p = .267$, 右: $p = .411$）。
     - **ベースライン比較:** 特にDT施行時の左前頭前野（Ch1）において、コントロール条件に対し最も堅固な活性化 ($p = .004$) が確認された。
  
-    - <img width="1800" height="1800" alt="final_activation_plot" src="https://github.com/user-attachments/assets/6d346ab9-876b-44cf-b09d-a14a6ca4bb3c" />
+    - <img width="1800" height="1800" alt="final_activation_plot" src="https://github.com/user-attachments/assets/3ceeda6a-48fa-41bb-973b-51852324c019" />
+　　 - <img width="2700" height="2400" alt="complete_nirs_analysis_report" src="https://github.com/user-attachments/assets/8ec2327f-e92d-4f71-ab23-9a765022f292" />
+
 
 ---
 
@@ -301,8 +303,9 @@ run_step7_prepare_table_plan_b
 #### 2. 分布の視覚的確認 (QQプロット)
 数値による検定結果を補完するため、QQプロットを作成した。`ct_total` については、理論上の正規分布を示す直線からデータの乖離が確認された。
 
-![QQプロットによる正規性確認](<img width="3000" height="3000" alt="qqplots_all_n25" src="https://github.com/user-attachments/assets/46d9b135-d470-47ff-b71b-d8232ee2f4d3" />
-)
+-<img width="3000" height="3000" alt="qqplots_all_n25" src="https://github.com/user-attachments/assets/1f1a9fc8-d316-4847-9352-1c1287fa24b5" />
+
+
 
 #### 3. 解析方針の決定
 本検定の結果に基づき、以下の通り相関解析の手法を使い分ける。
