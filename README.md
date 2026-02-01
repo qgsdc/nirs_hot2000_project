@@ -354,7 +354,8 @@ run_step7_prepare_table_plan_b
 - **神経効率性（Neural Efficiency）の示唆**: 言語理解指数（VCI）および収束的思考（CT）スコアが高い個人ほど、DT課題遂行中の前頭前野活性化（HbT変化量）が有意に低い（負の相関）ことが示された。これは、認知能力が高い個体ほど、より少ない認知的努力（脳資源の効率的活用）で課題を遂行している可能性を示唆している。
 - **課題特異的な脳活動**: 脳活動と実際のDTスコアの間には有意な相関が見られなかったことから、前頭前野の活性化はアイディアの「成績」そのものよりも、その生成に至る「プロセスのスタイル」や「主観的な負荷」を反映している可能性が高い。
 
-![全指標の相関サマリー]<img width="1800" height="1500" alt="correlation_dt_brain_score" src="https://github.com/user-attachments/assets/91712895-4487-4326-8a82-ffc4aa5c33a2" />
+![全指標の相関サマリー]<img width="4800" height="2400" alt="summary_correlation_Brain_DT" src="https://github.com/user-attachments/assets/500de3cf-d44d-4496-ba4a-c5781c4cce5d" />
+
 
 
 
