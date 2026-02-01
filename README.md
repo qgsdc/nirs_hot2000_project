@@ -373,8 +373,8 @@ run_step7_prepare_table_plan_b
 | **Brain_DT** | 0.0134 | 0.0341 | -1.26 | 0.2208 | 有意差なし (n.s.) |
 
 #### 2. 可視化
-![VCI群間比較](<img width="1800" height="1500" alt="vci_group_comparison_dt" src="https://github.com/user-attachments/assets/45733e13-549e-4cc0-a8a0-195c4a804ce9" />
-)
+![VCI群間比較]<img width="1800" height="1500" alt="vci_group_comparison_dt" src="https://github.com/user-attachments/assets/2ccaf11e-49c6-4a85-b3bb-a54283df770e" />
+
 
 #### 3. 考察
 群間比較においては有意差に至らなかった。これは中央値分割による情報の損失や、各群内における個体差の大きさが影響していると考えられる。しかし、平均値の傾向およびStep 11の相関分析結果を総合すると、言語的能力が高いほどDT課題中の前頭前野活性が抑制される「神経効率性」の傾向は依然として示唆されている。**
