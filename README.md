@@ -356,11 +356,30 @@ run_step7_prepare_table_plan_b
 
 ![全指標の相関サマリー]<img width="4800" height="2400" alt="summary_correlation_Brain_DT" src="https://github.com/user-attachments/assets/500de3cf-d44d-4496-ba4a-c5781c4cce5d" />
 
-
-
-
 ---
 
+*### Step 12: 能力群間における脳活動の比較 (Group Comparison)
+
+相関分析で関連が見られた「言語理解（VCI）」に基づき、被験者を中央値（Median = 112）で2群に分け、拡散的思考（DT）中の脳活動に差があるかを検討した。
+
+* **使用スクリプト**: `script/step12_group_comparison.R`
+* **手法**: 独立二標本のt検定（Welch's t-test）
+
+#### 1. 群間比較の結果
+統計的な有意差（p < .05）は認められなかったが、平均値においてはHigh VCI群がLow VCI群よりも低い活動量を示す傾向が確認された。
+
+| 指標 | High VCI (Mean) | Low VCI (Mean) | t値 | p値 | 判定 |
+|:---|:---|:---|:---|:---|:---|
+| **Brain_DT** | 0.0134 | 0.0341 | -1.26 | 0.2208 | 有意差なし (n.s.) |
+
+#### 2. 可視化
+![VCI群間比較](<img width="1800" height="1500" alt="vci_group_comparison_dt" src="https://github.com/user-attachments/assets/45733e13-549e-4cc0-a8a0-195c4a804ce9" />
+)
+
+#### 3. 考察
+群間比較においては有意差に至らなかった。これは中央値分割による情報の損失や、各群内における個体差の大きさが影響していると考えられる。しかし、平均値の傾向およびStep 11の相関分析結果を総合すると、言語的能力が高いほどDT課題中の前頭前野活性が抑制される「神経効率性」の傾向は依然として示唆されている。**
+
+---
 
 ## 📂 データ構造の定義 (Data Hierarchy)
 
