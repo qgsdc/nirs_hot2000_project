@@ -421,7 +421,7 @@ WAIS各指標と課題成績の相関関係を以下に示す。
 
 ※ * p < .05, + p < .10
 
-![CT難易度相関ヒートマップ]<<img width="2100" height="3000" alt="ct_difficulty_heatmap" src="https://github.com/user-attachments/assets/d218573c-a158-4762-8e7c-13e5c17a2fd4" />
+![CT難易度相関ヒートマップ]<<img width="2100" height="3000" alt="ct_difficulty_heatmap_v2" src="https://github.com/user-attachments/assets/0bd5147a-4750-431c-b2cc-743bdda7ae71" />
 
 
 #### 2. 考察：拡散思考（DT）と収束思考（CT）の認知的解離
