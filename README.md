@@ -170,45 +170,50 @@ run_step6_final
   - `time`: 時間軸（秒）
   - `data`: 全ヘモグロビン変化量（HbT）。2列のデータ（[1列目: Left, 2列目: Right]）
   - `pulse`: 心拍データ
-  - `mark`: マーカー情報（cell配列
+  - `mark`: マーカー情報（cell配列）
+ 
+---
 
-### Step 7: 統計用集計表の作成 (Plan A: task,control,baseline average)
-(`run_step7_prepare_table.m`)
+## Phase 3: Statistics Preparation (統計解析の準備)
 
-クリーンアップ済みデータ（Step 6 成果物）から、統計解析ソフト（R, SPSS, Python等）で即座に使用できる最終的なデータセット（CSV）を書き出します。
+### Step 7: 統計用集計表の作成 (Plan A & Plan B)
+`run_step7_prepare_table.m` / `run_step7_prepare_table_plan_b.m`
 
-#### 算出ロジック：全Rest区間基準補正 (Baseline Correction)
-被験者内およびセッション間のベースライン変動を抑え、課題による純粋な変化量を抽出するため、以下の計算を適用しています。
+解析の目的に合わせ、2種類の集計手法を用意しています。これらは後の線形混合モデル（LMM）において比較検証の対象となります。
 
-* **基準値の定義**: 各セッションにおける全ての「Rest（安静）」区間のデータポイントを抽出し、その平均値を $Baseline = 0$ と定義します。
-* **変化量の算出**: 「Task（課題）」区間の平均値から上記 $Baseline$ を差し引くことで、**相対的なHbT変化量（$\Delta HbT$）**を算出します。
+---
 
-#### 実行方法
-MATLABのコマンドウィンドウにて以下を実行します。
+#### **Plan A: 全区間基準補正 (Standard Average)**
+セッション全体の安静時を基準とし、タスク全体の平均を算出する標準的な手法です。
+* **スクリプト**: `script/step7/run_step7_prepare_table.m`
+* **算出ロジック**: 
+    * **Baseline**: 各セッション内の全ての「Rest」区間の平均値を $Baseline = 0$ と定義。
+    * **Task**: 「Task」区間（0〜60秒）の全平均を採用。
+* **出力**: `processed/step7/final_analysis_table_A.csv`
 
-```matlab
-% プロジェクトルートに移動
-cd('/Users/keisaruwatari/Documents/nirs-project/hot2000/hot2000_analysis');
-```
+#### **Plan B: 血流遅延考慮 & 直前ベースライン (Physiological Optimized)**
+脳血流の生理的応答（遅延）と、時間経過によるドリフトの影響を最小限に抑えるため、時間窓を最適化した手法です。
+* **スクリプト**: `script/step7/run_step7_prepare_table_plan_b.m`
+* **算出ロジック**:
+    * **Baseline**: 各タスク開始の **直前15秒間** の平均値を $Baseline = 0$ と定義。
+    * **Task**: 血流の立ち上がり待機（Hemodynamic Delay）として **開始直後の5秒を捨て**、残り（5〜60秒）の平均値を採用。
+* **出力**: `processed/step7/final_analysis_table_B.csv`
 
-% 集計スクリプトの実行
-run('script/step7/run_step7_prepare_table.m');
+---
 
-### Step 7: 統計用集計表の作成 (Plan B: 5s Delay & 15s Baseline)
-`run_step7_prepare_table_plan_b.m`
+#### **実行方法**
+MATLABのコマンドウィンドウにて、目的に応じて以下のいずれかを実行してください。
 
-血流の生理的遅延を考慮し、より純粋な課題関連活動を抽出するため、以下の算出ロジックを適用した最終データセットを作成します。
-
-#### 算出ロジック
-1. **血流遅延の考慮**: 課題開始直後の血流立ち上がり待ち（5秒間）を計算から除外し、**「開始5秒後〜終了まで」**の平均値を算出。
-2. **直近ベースライン補正**: セッション全体の平均ではなく、**「タスク開始直前15秒間」**の安静時平均値を $Baseline=0$ と定義。
-3. **変化量の算出**: `(Task 5-60s平均) - (直前15s Rest平均)` により、ドリフトを除去した純粋な変化量を抽出。
-
-#### 実行方法
 ```matlab
 % script/step7 フォルダに移動
 cd('script/step7');
+
+% Plan A (標準解析) を実行する場合
+run_step7_prepare_table
+
+% Plan B (生理学的最適化解析) を実行する場合
 run_step7_prepare_table_plan_b
+```
 
 ---
 
