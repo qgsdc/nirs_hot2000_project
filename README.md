@@ -241,6 +241,42 @@ run_step7_prepare_table_plan_b
 
 ---
 
+### Step 9: 解析結果の可視化と詳細分析
+
+統計的に有意な結果が得られた Analysis Plan B に基づき、Rを用いて視覚的な解析レポートを作成した。
+
+#### 1. 全体的な活性化の比較
+各タスク（DT/CT）がコントロール条件に対してどの程度活性化したかを、左右チャンネルを統合して算出した。
+
+* **使用スクリプト:** `script/step9_visualize_final.R`
+* **出力ファイル:** `results/step9/final_activation_plot.png`
+* **知見:** - 拡散的思考 (DT) は極めて強い活性化 ($p < .001$) を示し、収束的思考 (CT) も有意な活性化 ($p = .027$) が認められた。
+    - タスク間の直接比較では、DTの方が高い値を示すものの、統計的な有意差には至らなかった ($p = .891$)。
+
+[Image of a bar chart showing fNIRS activation for DT and CT tasks with significance stars]
+
+#### 2. チャンネル別・左右差の詳細解析
+さらに詳細な分析として、左脳（Ch1）と右脳（Ch2）ごとの活動パターンを可視化した。
+
+* **使用スクリプト:** `script/step9_the_complete_analysis.R`
+* **出力ファイル:** `results/step9/complete_nirs_analysis_report.png`
+* **知見:**
+    - **左右差の検証 (Lateralization):** いずれのタスクにおいても有意な左右差は認められず（DT: $p = .191$, CT: $p = .410$）、前頭前野が両側性に活動していることが示された。
+    - **部位ごとのタスク間比較:** 同一部位内でのタスク比較（DT vs CT）を行った結果、左脳・右脳ともにDTがCTを上回る傾向にあるが、部位別の有意差は認められなかった（左: $p = .267$, 右: $p = .411$）。
+    - **ベースライン比較:** 特にDT施行時の左前頭前野（Ch1）において、コントロール条件に対し最も堅固な活性化 ($p = .004$) が確認された。
+
+[Image of a grouped bar chart showing brain activation across tasks and channels with comprehensive p-value brackets]
+
+---
+
+## 結論
+
+本プロジェクトを通じて、fNIRSデータにおける適切なベースライン設定と生理学的遅延（5秒）の考慮が、解析の妥当性を高める上で極めて重要であることが示された。
+最終的に、拡散的思考および収束的思考の両者が前頭前野を両側性に活性化させることを、線形混合モデルによる厳密な統計解析によって証明した。
+
+---
+
+
 ## 📂 データ構造の定義 (Data Hierarchy)
 
 解析に使用する `.mat` ファイルは以下の階層構造を持ちます。
