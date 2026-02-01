@@ -1,4 +1,4 @@
-# nirs_hot2000_project
+<img width="2100" height="3000" alt="ct_difficulty_heatmap" src="https://github.com/user-attachments/assets/03fe28aa-a507-426d-9641-f47e8e07a390" /># nirs_hot2000_project
 **MATLAB-based fNIRS + HRV analysis pipeline (HOT-2000 / Hb133 / Check My Heart)**  
 **Version:** 2026-01-18  
 **Author:** Kei Saruwatari
@@ -421,7 +421,7 @@ WAIS各指標と課題成績の相関関係を以下に示す。
 
 ※ * p < .05, + p < .10
 
-![CT難易度相関ヒートマップ]![Uploading ct_difficulty_heatmap.png…]()
+![CT難易度相関ヒートマップ]<<img width="2100" height="3000" alt="ct_difficulty_heatmap" src="https://github.com/user-attachments/assets/d218573c-a158-4762-8e7c-13e5c17a2fd4" />
 
 
 #### 2. 考察：拡散思考（DT）と収束思考（CT）の認知的解離
