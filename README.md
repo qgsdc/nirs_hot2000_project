@@ -392,7 +392,7 @@ WAIS各指標と課題成績の相関関係を以下に示す。
 #### 2. 可視化 (DT指標 vs WAIS詳細相関ヒートマップ)
 解析の結果、**「独創性 (Originality)」** がWAISのほぼ全ての指標（特に流動性知能やワーキングメモリの操作側面）と有意な相関を示した。
 
-![DT詳細相関ヒートマップ]<img width="2400" height="3000" alt="dt_wais_heatmap" src="https://github.com/user-attachments/assets/16e83b22-0dc3-481b-996e-628f1c3f9280" />
+![DT詳細相関ヒートマップ]<<img width="2400" height="3000" alt="dt_wais_heatmap_master_order" src="https://github.com/user-attachments/assets/5516db97-862f-4c90-92a3-f4999cb9b6dc" />
 
 #### 3. 考察
 本解析により、創造性の核心である「独創性」を支える認知的基盤が明確になった。
