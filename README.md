@@ -215,48 +215,12 @@ run_step7_prepare_table
 run_step7_prepare_table_plan_b
 ```
 
----
-
-## Phase 3: Statistics Preparation (統計解析の準備)
-
-### Step 7: 統計用集計表の作成 (Plan A & Plan B)
-`run_step7_prepare_table.m` / `run_step7_prepare_table_plan_b.m`
-
-解析の目的に合わせ、2種類の算出プランを用意しています。これらは後の線形混合モデル（LMM）において比較検証の対象となります。
-
----
-
-#### **Plan A: 全区間基準補正 (Standard Average)**
-セッション全体の安静時を基準とし、タスク全期間の平均を算出する標準的な手法です。
-* **スクリプト**: `script/step7/run_step7_prepare_table.m`
-* **算出ロジック**: 
-    * **Baseline**: セッション内の全「Rest」区間の平均値を $Baseline = 0$ と定義。
-    * **Task**: 「Task」区間（0〜60秒）の全平均を採用。
-* **出力**: `processed/step7/final_analysis_table_A.csv`
-
-#### **Plan B: 血流遅延考慮 & 直前ベースライン (Physiological Optimized)**
-脳血流の生理的応答（遅延）と、時間経過によるドリフトの影響を最小限に抑えるため、時間窓を最適化した手法です。
-* **スクリプト**: `script/step7/run_step7_prepare_table_plan_b.m`
-* **算出ロジック**:
-    * **Baseline**: 各タスク開始の **直前15秒間** の平均値を $Baseline = 0$ と定義。
-    * **Task**: 血流の立ち上がり待機（Hemodynamic Delay）として **開始直後の5秒を捨て**、残り（5〜60秒）の平均値を採用。
-* **出力**: `processed/step7/final_analysis_table_B.csv`
-
----
-
-#### **実行方法**
-MATLABのコマンドウィンドウにて、目的に応じて以下のいずれかを実行してください。
-
-```matlab
-% script/step7 フォルダに移動
-cd('script/step7');
-
-% Plan A (標準解析) を実行する場合
-run_step7_prepare_table
-
-% Plan B (生理学的最適化解析) を実行する場合
-run_step7_prepare_table_plan_b
-```
+| カラム名 | 内容 |
+|:---|:---|
+| **SubjectID** | 被験者識別ID |
+| **SessionID** | 課題の種類 (dt1, ct1, dt_ctrl1 等) |
+| **Channel** | 計測部位 (Ch1: Left / Ch2: Right) |
+| **HbT_Change** | 補正後の全ヘモグロビン変化量（活動指標） |
 
 ---
 
