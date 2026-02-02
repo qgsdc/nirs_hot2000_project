@@ -299,6 +299,47 @@ run_step7_prepare_table_plan_b
 
 ---
 
+### Step 9' : 解析結果の可視化と詳細分析
+
+[cite_start]心身同期クリーンアップ（Step 20）を経て確定した **25名・568試行** のデータに基づき、生理学的最適化（Plan B: 5s delay / 15s baseline）を適用した最終解析レポートを作成した [cite: 5, 17, 20]。
+
+#### 1. 全体的な活性化の比較（左右チャネル統合）
+[cite_start]LMM（線形混合モデル）により、個体差を変量効果として考慮した上で各タスク（DT/CT）の活性化レベルを推定した 。
+
+* [cite_start]**使用スクリプト:** `script/step9/step9_complete_analysis_refined_full.R` [cite: 17, 21]
+* [cite_start]**出力ファイル:** `results/step9/simple_report_reproduction.png` 
+
+| 比較項目 | 推定値 (Estimate) | p-value | 判定 |
+|:---|:---:|:---:|:---|
+| **DT vs Control** | **+0.0963** | **0.0169** | [cite_start]**有意 (p < 0.05) ** |
+| **CT vs Control** | +0.0858 | 0.0651 | [cite_start]有意な傾向 (+)  |
+| **DT vs CT** | +0.0105 | 0.7598 | [cite_start]有意差なし (n.s.)  |
+
+
+#### 2. チャンネル別・重層的統計比較
+[cite_start]左脳（Ch1）と右脳（Ch2）の活動パターン、および部位間・タスク間の全方位的な比較を可視化した [cite: 213, 240]。
+
+* [cite_start]**使用スクリプト:** `script/step9/step9_complete_analysis_refined_full.R` 
+* [cite_start]**出力ファイル:** `results/step9/detailed_nirs_report_final.png` 
+
+| 解析指標 | 比較内容 | 結果 (p-value) | 備考 |
+|:---|:---|:---:|:---|
+| **部位別活性化** | **DT実行時 - Left (Ch1)** | **p = 0.004 ** | [cite_start]**最も堅固な活性化 ** |
+| **部位別活性化** | DT実行時 - Right (Ch2) | p = 0.074 | [cite_start]有意な傾向 (+)  |
+| **左右差 (Lat)** | DT (Left vs Right) | p = 0.191 | [cite_start]有意な左右差なし  |
+| **左右差 (Lat)** | CT (Left vs Right) | p = 0.410 | [cite_start]有意な左右差なし  |
+| **タスク間比較** | Left (DT vs CT) | p = 0.267 | [cite_start]同一部位内での有意差なし  |
+
+
+---
+
+## 結論（Phase 3 統合）
+
+[cite_start]本プロジェクトのPhase 3を通じ、**「拡散的思考（DT）において前頭前野の有意な活性化と、自律神経の沈静化（LF/HF低下）が共起する」**という心身同調現象を、LMM（線形混合モデル）による厳密な統計解析によって証明した 。
+[cite_start]特に左前頭前野（Ch1）の活動がDTにおいて主導的な役割を果たしていることが示唆され、創造的思考時における「リラックスした集中状態（Flow）」の生理的基盤を特定した [cite: 21, 214]。
+
+---
+
 ### Step 10: 変数の正規性検定 (Normality Test)
 
 相関分析（Step 11）における適切な統計手法（ピアソンまたはスピアマン）を選択するため、各指標の分布についてShapiro-Wilk検定およびQQプロットによる視覚的確認を行った。
