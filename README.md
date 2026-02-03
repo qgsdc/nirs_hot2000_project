@@ -721,6 +721,8 @@ LMM解析（Step 21）の結果を受け、相関解析の精度を高めるた�
 | **個別対応** | nakashima氏のCT課題におけるHbT波形のみ、SN比不足のため除外フラグを付与 |
 | **最終サンプルサイズ** | 全588試行のうち、有効と判定された568試行（N=25）を採用 |
 
+---
+
 ### Step 23: 脳・心・体 統合マスタデータの作成 (N=25)
 
 Step 22で精査された試行データから、被験者ごとの平均変化量（Task - Control）を算出し、心理指標と結合するための統合マスタを作成した。これにより、個人の認知特性と生理反応のクロス解析が可能となった。
@@ -735,34 +737,6 @@ Step 22で精査された試行データから、被験者ごとの平均変化�
 
 **成果物:** `results/step23/comprehensive_master_n25.csv`
 
-### Step 24: 脳活動と知能指標（WAIS-IV）の相関解析
-
-統合マスタを用い、脳活動（HbT変化量）と認知特性の相関を可視化した。
-
-#### 1. 相関ヒートマップ (Visualizations)
-解析には、全体の傾向把握に適したSeaborn版（Python）と、論文投稿用のカラーマップを適用したMATLAB版の2種類を出力した。
-
-**MATLAB版（論文用カスタムカラーマップ）**
-![MATLAB Heatmap](results/step24/heatmap_brain_wais.png)
-
-**Seaborn版（分布確認用）**
-![Python Heatmap](results/step24/brain_wais_correlation_heatmap.png)
-
-#### 2. 統計結果サマリー
-
-| 思考タスク | 心理指標 | 相関係数 $r$ | $p$ 値 | 判定 |
-|:---|:---|:---:|:---:|:---|
-| **収束的思考 (CT)** | **言語理解 (VCI)** | **-0.398** | **0.054** | † 有意傾向 |
-| **収束的思考 (CT)** | **ワーキングメモリ (WMI)** | **-0.381** | **0.066** | † 有意傾向 |
-| **収束的思考 (CT)** | 処理速度 (PSI) | -0.332 | 0.113 | n.s. |
-| **拡散的思考 (DT)** | 全検査IQ (FSIQ) | -0.237 | 0.253 | n.s. |
-| **拡散的思考 (DT)** | 言語理解 (VCI) | -0.141 | 0.502 | n.s. |
-
-※ $N=25$ (CT解析は $N=24$) / 有意確率: * $p < 0.05$, † $p < 0.1$
-
-#### 3. 考察：神経効率性（Neural Efficiency）の兆候
-収束的思考（CT）において、VCIおよびWMIが高い被験者ほど前頭前野の活動が低いという「負の相関」の強い傾向が確認された。これは、高い認知能力を持つ個体が少ない脳リソースで効率的に課題を遂行するという「神経効率性仮説（Neural Efficiency Hypothesis）」を支持する重要な兆候である。
-
 ---
 
 ## 🧠 Step 24: 脳活動と知能指標（WAIS-IV）の相関解析
@@ -773,7 +747,7 @@ master_table(prepare_comprehensive_master.m)
 
 ### 1. 相関ヒートマップ
 脳活動（HbT変化量）と各心理指標の相関関係を可視化した。（run_step24_heatmap.R）
-![Brain-Psych Correlation Heatmap]<img width="1250" height="625" alt="heatmap_brain_wais" src="https://github.com/user-attachments/assets/236f9a74-cca5-469d-b193-6c64d1dd0cdd" />
+![Brain-Psych Correlation Heatmap]<img width="1500" height="2100" alt="heatmap_brain_wais_R_style" src="https://github.com/user-attachments/assets/70fb36bd-df16-4921-ba0d-542cf6e8606a" />
 
 
 ### 2. 統計結果サマリー（run_step24_brain_psych_correlation.m）
@@ -789,6 +763,8 @@ master_table(prepare_comprehensive_master.m)
 
 ※ $N=25$ (CT解析は欠損値1名を除外した $N=24$)
 ※ 有意確率: * $p < 0.05$, † $p < 0.1$
+
+**成果物:** `results/step24/correlation_results_brain_wais.csv`
 
 ### 3. 考察：神経効率性（Neural Efficiency）の兆候
 解析の結果、収束的思考（CT）において強い**負の相関**が確認された。
