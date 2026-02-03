@@ -769,11 +769,14 @@ Step 22で精査された試行データから、被験者ごとの平均変化�
 
 クリーンアップされた脳活動データ（N=25）と心理指標（WAIS-IVおよびタスク成績）の相関を解析した。
 
-### 1. 相関ヒートマップ
-脳活動（HbT変化量）と各心理指標の相関関係を可視化した。
-![Brain-Psych Correlation Heatmap](results/step24/heatmap_brain_wais.png)
+master_table(prepare_comprehensive_master.m)
 
-### 2. 統計結果サマリー
+### 1. 相関ヒートマップ
+脳活動（HbT変化量）と各心理指標の相関関係を可視化した。（run_step24_heatmap.R）
+![Brain-Psych Correlation Heatmap]<img width="1250" height="625" alt="heatmap_brain_wais" src="https://github.com/user-attachments/assets/236f9a74-cca5-469d-b193-6c64d1dd0cdd" />
+
+
+### 2. 統計結果サマリー（run_step24_brain_psych_correlation.m）
 主要な指標における相関係数 $r$ および $p$ 値は以下の通りである。
 
 | 思考タスク | 心理指標 | 相関係数 $r$ | $p$ 値 | 判定 |
@@ -794,7 +797,6 @@ Step 22で精査された試行データから、被験者ごとの平均変化�
 * これは、高い認知能力を持つ個体が、複雑な認知課題を遂行する際により少ない神経資源で対応できるとする「**神経効率性仮説（Neural Efficiency Hypothesis）**」を強く示唆する結果である。
 * 一方、拡散的思考（DT）においては知能指標との明確な相関は見られず、創造的な思考プロセスは従来の知能指標とは独立したメカニズムを有している可能性が考えられる。
 
-  
 ---
 
 これ以下はどのようなステップ番号にするか保留 
